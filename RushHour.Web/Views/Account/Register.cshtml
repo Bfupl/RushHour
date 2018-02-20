@@ -1,0 +1,101 @@
+﻿@model RushHour.Web.ViewModels.UserViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>Create a new account.</h4>
+    <hr />
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", id = "Password" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Confirm password", new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", id = "confirmPassword", onkeyup="ConfirmPassword();" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", id = "Name" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Phone, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", id = "Phone" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.IsAdmin, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                <input class="check-box" data-val="true" data-val-required="The Will the user be an admin field is required." id="IsAdmin" name="IsAdmin" type="checkbox" value="true" disabled>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Admin password", new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBox("password", null, new { type = "password", id = "adminPassword", @class = "form-control", onkeyup = "IsAdminPasswordCorrect();" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" id="RegisterButton" class="btn btn-default" value="Register" disabled />
+            </div>
+        </div>
+}
+@section Scripts{
+
+    <script>
+     function ConfirmPassword() {
+            var password = $('#Password');
+            var confirmPasswordInput = $('#confirmPassword');
+            var passwordValue = password.val();
+            var confirmPassValue = confirmPasswordInput.val();
+            var registerButton = $('#RegisterButton');
+
+            debugger;
+            if (passwordValue == confirmPassValue) {
+
+                registerButton.removeAttr('disabled');
+            }
+
+        }
+
+        function IsAdminPasswordCorrect() {
+            var adminPassword = "123";
+            var passwordInput = $('#adminPassword');
+            var admincheckbox = $('#IsAdmin');
+            var passwordvalue = passwordInput.val();
+            console.log(passwordvalue);
+            debugger;
+
+            if (adminPassword === passwordvalue) {
+                admincheckbox.removeAttr('disabled');
+            }
+            else {
+                admincheckbox.attr('disabled', true);
+            }
+        }
+    </script>
+
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

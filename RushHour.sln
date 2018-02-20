@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RushHour.Web", "RushHour.Web\RushHour.Web.csproj", "{E05B8EB7-57E3-4A53-81D4-EAB44FA30ECC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RushHour.Data", "RushHour.Data\RushHour.Data.csproj", "{D65B5F21-8A90-4478-A42C-455FFF20F8D4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E05B8EB7-57E3-4A53-81D4-EAB44FA30ECC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E05B8EB7-57E3-4A53-81D4-EAB44FA30ECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E05B8EB7-57E3-4A53-81D4-EAB44FA30ECC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E05B8EB7-57E3-4A53-81D4-EAB44FA30ECC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D65B5F21-8A90-4478-A42C-455FFF20F8D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D65B5F21-8A90-4478-A42C-455FFF20F8D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D65B5F21-8A90-4478-A42C-455FFF20F8D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D65B5F21-8A90-4478-A42C-455FFF20F8D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AFED6FD5-D6EA-4DDF-9AE2-92AA589994F5}
+	EndGlobalSection
+EndGlobal

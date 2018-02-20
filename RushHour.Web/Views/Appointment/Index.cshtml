@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div style="width:90%; margin:0 auto;">
+
+
+    <table id="AppointmentTable">
+        <thead>
+            <tr>
+                
+                <th>Username</th>
+                <th>StartDateTime</th>
+                <th>EndDateTime</th>
+                <th>Activities</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+@section Scripts {
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('#AppointmentTable').DataTable({
+                "ajax": {
+                    "url": "/Appointment/LoadData",
+                    "type": "GET",
+                    "datatype": "json"
+                },
+                "columns": [
+                    
+                    {data:"UserName"},
+                    { data: "StartDateTime" },
+                    { data: "EndDateTime" },
+                    { data:"ActivitiesNames"},
+
+                    {
+                        data: "Id", render:
+
+
+                        function (id) {
+
+                            return "<a  href='Appointment/Details/" + id + "'>Details </a> <a  href='Appointment/Edit/" + id + "'>Edit </a><a href='Appointment/Delete/" + id + "'>Delete </a>";
+                        }
+                    },
+                ]
+            });
+        });
+    </script>
+
+}
+<div>@Html.ActionLink("Create", "Create")</div>
+
+

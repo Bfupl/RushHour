@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Home Page";
+
+}
+
+@*@if (RushHour.Web.Authentication.AuthenticationManager.LoggedUser != null)
+    {
+        @Html.ActionLink("Appointments", "Index", "Appointment", routeValues: null, htmlAttributes: new { @class = "classname" })
+        @Html.ActionLink("Appointments", "Create", "Appointment", routeValues: null, htmlAttributes: new { @class = "classname" })
+        @Html.ActionLink("Calendar", "Calendar", "Appointment", routeValues: null, htmlAttributes: new { @class = "classname" })
+
+    }
+
+    @if ((RushHour.Web.Authentication.AuthenticationManager.LoggedUser != null &&
+    RushHour.Web.Authentication.AuthenticationManager.LoggedUser.IsAdmin))
+    {
+
+
+        @Html.ActionLink("Activity", "Index", "Activity", routeValues: null, htmlAttributes: new { @class = "classname" })
+        @Html.ActionLink("Users", "Index", "User", routeValues: null, htmlAttributes: new { @class = "classname" })
+
+    }
+    <style>
+
+        a.classname {
+            background: url(../Content/images/2.png);
+            margin-top: 55px;
+            margin-left: 100px;
+            display: inline;
+            float: left;
+            width: 400px;
+            height: 103px;
+            text-indent: -9999px; /* hides the link text */
+        }
+
+        a.classname2 {
+            background: url(../Content/images/2.png);
+            margin-top: 55px;
+            display: block;
+            width: 400px;
+            height: 103px;
+            text-indent: -9999px; /* hides the link text */
+        }
+    </style>*@

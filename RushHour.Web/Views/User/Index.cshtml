@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div style="width:90%; margin:0 auto;">
+
+
+    <table id="UsersTable">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Is Administrator</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+@section Scripts{
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $('#UsersTable').DataTable({
+                "ajax": {
+                    "url": "/User/LoadData",
+                    "type": "GET",
+                    "datatype": "json"
+                },
+                "columns": [
+                    { data: "Email" },
+                    { data: "Password", },
+                    { data: "Name", },
+                    { data: "Phone", },
+                    { data: "IsAdmin", },
+                    {
+                        data: "Id", render:
+
+
+                            function (id) {
+
+                                return "<a  href='User/Details/" + id + "'>Details </a> <a  href='User/Edit/" + id + "'>Edit </a><a href='User/Delete/" + id + "'>Delete </a>";
+                            }},
+                ]
+            });
+        });
+
+    </script>
+}

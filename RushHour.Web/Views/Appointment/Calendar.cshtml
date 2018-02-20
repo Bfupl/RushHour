@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Calendar";
+}
+
+<h2>Calendar</h2>
+
+
+<div id='calendar'></div>
+
+<link href='../Scripts/fullcalendar.min.css' rel='stylesheet' />
+<link href='../Scripts/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+
+
+
+<style>
+    body {
+        margin: 40px 10px;
+        padding: 0;
+        font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+        font-size: 14px;
+    }
+
+    #calendar {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+</style>
+
+@section Scripts{
+
+    <script src='../Scripts/moment.min.js'></script>
+    <script src='../Scripts/jquery.min.js'></script>
+    <script src='../Scripts/fullcalendar.min.js'></script>
+    <script>
+
+        $(document).ready(function () {
+
+            $('#calendar').fullCalendar({
+
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,basicWeek,basicDay'
+                },
+
+                navLinks: true,
+                editable: true,
+                allDaySlot: false,
+                selectable: true,
+                slotMinutes: 15,
+                eventLimit: true,
+                timeFormat: 'H(:mm)',
+                events: '/Appointment/LoadCalendar/'
+            })
+        })
+
+    </script>
+}
