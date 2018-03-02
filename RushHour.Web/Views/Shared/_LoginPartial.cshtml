@@ -1,10 +1,21 @@
 ﻿@using Microsoft.AspNet.Identity;
 
-@if (RushHour.Web.Authentication.AuthenticationManager.LoggedUser != null)
+
+ @if (RushHour.Web.Authentication.AuthenticationManager.LoggedUser != null && RushHour.Web.Authentication.AuthenticationManager.LoggedUser.IsAdmin != true)
 {
     <ul class="nav navbar-nav navbar-right">
         <li>
-            @Html.ActionLink("Hello " + RushHour.Web.Authentication.AuthenticationManager.LoggedUser.Name + "!", "Details/" +  RushHour.Web.Authentication.AuthenticationManager.LoggedUser.Id, "User"  , routeValues: null, htmlAttributes: new { title = "Manage" })
+            @Html.ActionLink("Hello " + RushHour.Web.Authentication.AuthenticationManager.LoggedUser.Name + "!", "Details/" + RushHour.Web.Authentication.AuthenticationManager.LoggedUser.Id, "User", routeValues: null, htmlAttributes: new { title = "Manage" })
+        </li>
+        <li>@Html.ActionLink("Log out", "LogOut", "Account")</li>
+    </ul>
+}
+else if (RushHour.Web.Authentication.AuthenticationManager.LoggedUser != null && RushHour.Web.Authentication.AuthenticationManager.LoggedUser.IsAdmin)
+{
+
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @Html.ActionLink("Hello " + RushHour.Web.Authentication.AuthenticationManager.LoggedUser.Name + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
         <li>@Html.ActionLink("Log out", "LogOut", "Account")</li>
     </ul>

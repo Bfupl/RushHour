@@ -179,6 +179,7 @@
     <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\CrudController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -355,6 +356,7 @@
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\User\Delete.cshtml" />
     <Content Include="Views\Appointment\Calendar.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
