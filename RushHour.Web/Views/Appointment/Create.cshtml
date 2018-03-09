@@ -59,7 +59,7 @@
             $.get("/Appointment/GetReservedHours", function (data) {
                 $('#startDate').datetimepicker({
                     defaultDate: new Date(),
-                    format: 'DD-MM-YYYY HH:mm',
+                    format: 'YYYY-MM-DD HH:mm',
                     ignoreReadonly: true,
                     disabledTimeIntervals: data
                 });
