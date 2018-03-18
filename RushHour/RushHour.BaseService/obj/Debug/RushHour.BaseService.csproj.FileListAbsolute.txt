@@ -1,0 +1,17 @@
+C:\Users\Ivo\source\repos\RushHour2\RushHour.BaseService\bin\Debug\RushHour.BaseService.dll
+C:\Users\Ivo\source\repos\RushHour2\RushHour.BaseService\bin\Debug\RushHour.BaseService.pdb
+C:\Users\Ivo\source\repos\RushHour2\RushHour.BaseService\bin\Debug\RushHour.BaseService.Domain.dll
+C:\Users\Ivo\source\repos\RushHour2\RushHour.BaseService\bin\Debug\RushHour.Common.dll
+C:\Users\Ivo\source\repos\RushHour2\RushHour.BaseService\bin\Debug\RushHour.DataAccess.dll
+C:\Users\Ivo\source\repos\RushHour2\RushHour.BaseService\bin\Debug\EntityFramework.dll
+C:\Users\Ivo\source\repos\RushHour2\RushHour.BaseService\bin\Debug\RushHour.RelationalServices.Domain.dll
+C:\Users\Ivo\source\repos\RushHour2\RushHour.BaseService\bin\Debug\RushHour.BaseService.Domain.pdb
+C:\Users\Ivo\source\repos\RushHour2\RushHour.BaseService\bin\Debug\RushHour.Common.pdb
+C:\Users\Ivo\source\repos\RushHour2\RushHour.BaseService\bin\Debug\RushHour.DataAccess.pdb
+C:\Users\Ivo\source\repos\RushHour2\RushHour.BaseService\bin\Debug\RushHour.DataAccess.dll.config
+C:\Users\Ivo\source\repos\RushHour2\RushHour.BaseService\bin\Debug\EntityFramework.xml
+C:\Users\Ivo\source\repos\RushHour2\RushHour.BaseService\bin\Debug\RushHour.RelationalServices.Domain.pdb
+C:\Users\Ivo\source\repos\RushHour2\RushHour.BaseService\obj\Debug\RushHour.BaseService.csprojResolveAssemblyReference.cache
+C:\Users\Ivo\source\repos\RushHour2\RushHour.BaseService\obj\Debug\RushHour.BaseService.csproj.CoreCompileInputs.cache
+C:\Users\Ivo\source\repos\RushHour2\RushHour.BaseService\obj\Debug\RushHour.BaseService.dll
+C:\Users\Ivo\source\repos\RushHour2\RushHour.BaseService\obj\Debug\RushHour.BaseService.pdb

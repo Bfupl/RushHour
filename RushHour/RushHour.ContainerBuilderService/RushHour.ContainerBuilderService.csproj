@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A4CFFCFF-32A6-424A-9871-42250DB3D742}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RushHour.ContainerBuilderService</RootNamespace>
+    <AssemblyName>RushHour.ContainerBuilderService</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.6.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.6.2\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ContainerBuilderExtension.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RushHour.ActivityServices\RushHour.ActivityServices.csproj">
+      <Project>{625007B1-DD68-43C3-8CED-4141FAB5A59E}</Project>
+      <Name>RushHour.ActivityServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RushHour.AppointmentServices\RushHour.AppointmentServices.csproj">
+      <Project>{75A04821-9494-4B9A-B63F-E36B82656A8F}</Project>
+      <Name>RushHour.AppointmentServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RushHour.BaseService.Domain\RushHour.BaseService.Domain.csproj">
+      <Project>{B415735C-787F-4DFF-8F5C-93B01889ED01}</Project>
+      <Name>RushHour.BaseService.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RushHour.Common\RushHour.Common.csproj">
+      <Project>{305FCCF1-D8B7-4619-9FB6-209C66DFAE5C}</Project>
+      <Name>RushHour.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RushHour.DataAccess\RushHour.DataAccess.csproj">
+      <Project>{52523D39-7985-423F-A3C0-42F7C4185703}</Project>
+      <Name>RushHour.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RushHour.RelationalServices.Domain\RushHour.RelationalServices.Domain.csproj">
+      <Project>{AE561117-F877-4985-8F8F-480C966B2E44}</Project>
+      <Name>RushHour.RelationalServices.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RushHour.UserServices\RushHour.UserServices.csproj">
+      <Project>{9DB016BC-AE18-4518-8588-B731D718CA5C}</Project>
+      <Name>RushHour.UserServices</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

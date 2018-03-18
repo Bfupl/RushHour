@@ -1,0 +1,87 @@
+﻿
+@model RushHour.Web.ViewModels.Appointment.AppoitmentEditViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Edit</h2>
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Appointment</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+        <div class="form-group">
+            @Html.Label("StartDateTime", new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.StartDateTime, new { @class = "form-control", id = "startDate" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("EndDateTime", new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.EndDateTime, new { @class = "form-control", id = "endDate" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Activities, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @for (int i = 0; i < Model.Activities.Count; i++)
+                {
+                    @Html.CheckBoxFor(model => model.Activities[i].IsChecked)
+                    @Model.Activities[i].Name
+                    @Html.HiddenFor(model => model.Activities[i].Id)
+                    @Html.HiddenFor(model => model.Activities[i].Name)
+                    <br />
+                }
+
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Edit" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<link rel="stylesheet" href="/Content/bootstrap-datetimepicker.css" />
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript" src="/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/scripts/moment.min.js"></script>
+    <script type="text/javascript" src="/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/scripts/bootstrap-datetimepicker.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            $('#startDate').datetimepicker({
+                defaultDate: new Date(),
+                format: 'DD-MM-YYYY HH:mm:ss'
+
+            });
+            $('#endDate').datetimepicker({
+                defaultDate: new Date(),
+                format: 'DD-MM-YYYY HH:mm:ss'
+            });
+        });
+    </script>
+
+
+}

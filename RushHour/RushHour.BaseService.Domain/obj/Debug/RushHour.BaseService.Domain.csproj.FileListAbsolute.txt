@@ -1,0 +1,6 @@
+C:\Users\Ivo\source\repos\RushHour2\RushHour.BaseService.Domain\bin\Debug\RushHour.BaseService.Domain.dll
+C:\Users\Ivo\source\repos\RushHour2\RushHour.BaseService.Domain\bin\Debug\RushHour.BaseService.Domain.pdb
+C:\Users\Ivo\source\repos\RushHour2\RushHour.BaseService.Domain\obj\Debug\RushHour.BaseService.Domain.csprojResolveAssemblyReference.cache
+C:\Users\Ivo\source\repos\RushHour2\RushHour.BaseService.Domain\obj\Debug\RushHour.BaseService.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Ivo\source\repos\RushHour2\RushHour.BaseService.Domain\obj\Debug\RushHour.BaseService.Domain.dll
+C:\Users\Ivo\source\repos\RushHour2\RushHour.BaseService.Domain\obj\Debug\RushHour.BaseService.Domain.pdb

@@ -1,0 +1,70 @@
+﻿@using RushHour.RelationalServices.Domain.AppointmentModels
+
+
+@model RushHour.Web.ViewModels.Appointment.AppointmentCreateViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Appointment</h4>
+
+        <div class="form-group">
+            @Html.Label("Date", new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.StartDateTime, new { @class = "form-control", id = "startDate", @readonly = true })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Activities", new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @for (int i = 0; i < Model.ListBoxActivities.Count; i++)
+                {
+                    @Html.CheckBoxFor(model => model.ListBoxActivities[i].IsChecked)
+                    @Model.ListBoxActivities[i].Name
+                    @Html.HiddenFor(model => model.ListBoxActivities[i].Id)
+                    @Html.HiddenFor(model => model.ListBoxActivities[i].Name)
+                }
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<link rel="stylesheet" href="/Content/bootstrap-datetimepicker.css" />
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript" src="/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/scripts/moment.min.js"></script>
+    <script type="text/javascript" src="/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/scripts/bootstrap-datetimepicker.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $.get("/Appointment/GetReservedHours", function (data) {
+                $('#startDate').datetimepicker({
+                    defaultDate: new Date(),
+                    format: 'YYYY-MM-DD HH:mm',
+                    ignoreReadonly: true,
+                    disabledTimeIntervals: data
+                });
+            });
+        });
+    </script>
+
+
+}
