@@ -91,8 +91,8 @@ namespace RushHour.Web.Controllers
             {
                 return View(model);
             }
-
-            return RedirectToAction("Index", "Home");
+            Authentication.AuthenticationManager.Authenticate(user.Email, user.Password);
+            return RedirectToAction("Index", "Account");
         }
     }
 }
