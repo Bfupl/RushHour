@@ -3,5 +3,23 @@
     ViewBag.Title = "Index";
 }
 
+@section Scripts {
+    <script src='../Scripts/moment.min.js'></script>
+    <script src='../Scripts/pnotify.custom.min.js'></script>
+    <script src='../Scripts/jquery.min.js'></script>
+    <script src='../Scripts/fullcalendar.min.js'></script>
 
-
+    <link href='../Content/pnotify.custom.css' rel='stylesheet' />
+    @if (RushHour.Web.Authentication.AuthenticationManager.LoggedUser != null)
+    {
+        <script>
+        $(document).ready(function () {
+            new PNotify({
+                title: 'Login Success!',
+                text: 'Welcome' + ' ' +'@RushHour.Web.Authentication.AuthenticationManager.LoggedUser.Name',
+                type: 'success'
+            });
+        })
+        </script>
+    }
+}

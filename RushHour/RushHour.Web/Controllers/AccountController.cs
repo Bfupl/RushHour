@@ -45,7 +45,7 @@ namespace RushHour.Web.Controllers
                 return View();
             }
 
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index","Account");
         }
 
         public ActionResult LogOut()

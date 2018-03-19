@@ -6,3 +6,11 @@ C:\Users\Ivo\source\repos\RushHour2\RushHour.Common\obj\Debug\RushHour.Common.cs
 C:\Users\Ivo\source\repos\RushHour2\RushHour.Common\obj\Debug\RushHour.Common.csproj.CoreCompileInputs.cache
 C:\Users\Ivo\source\repos\RushHour2\RushHour.Common\obj\Debug\RushHour.Common.dll
 C:\Users\Ivo\source\repos\RushHour2\RushHour.Common\obj\Debug\RushHour.Common.pdb
+C:\Users\Ivo\Desktop\RushHourNew\RushHour\RushHour\RushHour.Common\bin\Debug\RushHour.Common.dll
+C:\Users\Ivo\Desktop\RushHourNew\RushHour\RushHour\RushHour.Common\bin\Debug\RushHour.Common.pdb
+C:\Users\Ivo\Desktop\RushHourNew\RushHour\RushHour\RushHour.Common\bin\Debug\RushHour.BaseService.Domain.dll
+C:\Users\Ivo\Desktop\RushHourNew\RushHour\RushHour\RushHour.Common\bin\Debug\RushHour.BaseService.Domain.pdb
+C:\Users\Ivo\Desktop\RushHourNew\RushHour\RushHour\RushHour.Common\obj\Debug\RushHour.Common.csprojResolveAssemblyReference.cache
+C:\Users\Ivo\Desktop\RushHourNew\RushHour\RushHour\RushHour.Common\obj\Debug\RushHour.Common.csproj.CoreCompileInputs.cache
+C:\Users\Ivo\Desktop\RushHourNew\RushHour\RushHour\RushHour.Common\obj\Debug\RushHour.Common.dll
+C:\Users\Ivo\Desktop\RushHourNew\RushHour\RushHour\RushHour.Common\obj\Debug\RushHour.Common.pdb
