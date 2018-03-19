@@ -2,6 +2,33 @@
 @{
     ViewBag.Title = "Index";
 }
+@if (RushHour.Web.Authentication.AuthenticationManager.LoggedUser != null)
+{
+<div class="container-fluid" style="margin: 50px 35px">
+    <img src="https://media.giphy.com/media/10zdNpfpsoV4sM/giphy.gif" class="img-responsive" style="float:left">
+
+
+
+
+    <h1 class="text-uppercase">Welcome</h1>
+    <h2 class="lead text-capitalize"><i>Now when you are logged you can: </i></h2>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Create Appointments</h2>
+            <p>
+                You can check all the activities we offer under the Appoitments tab in the main menu !
+            </p>
+        </div>
+        <div class="col-md-6">
+            <h2>Check your Calendar</h2>
+            <p>
+                When you make an appoitment it will be automatically added into your calendar. That way is easier for you to check your weekly or monthly schedule.
+            </p>
+        </div>
+    </div>
+</div>
+}
 
 @section Scripts {
     <script src='../Scripts/moment.min.js'></script>
