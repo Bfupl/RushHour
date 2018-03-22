@@ -1,4 +1,5 @@
-﻿using RushHour.BaseService;
+﻿using AutoMapper;
+using RushHour.BaseService;
 using RushHour.Common.Interfaces;
 using RushHour.DataAccess.Context;
 using RushHour.DataAccess.UnitOfWork;
@@ -93,6 +94,36 @@ namespace RushHour.Web.Controllers
             }
             Authentication.AuthenticationManager.Authenticate(user.Email, user.Password);
             return RedirectToAction("Index", "Account");
+        }
+        
+       
+        [HttpGet]
+        public ActionResult UserProfile(int id)
+        {
+            ViewModels.UserViewModel vModel = new ViewModels.UserViewModel ();
+            User model = service.Get(id);
+            if (model == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Mapper.Map(model, vModel);
+            return View(vModel);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UserProfile(ViewModels.UserViewModel Vmodel, User model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(Vmodel);
+            }
+
+            if (!service.Update(model))
+            {
+                return View();
+            }
+
+            return RedirectToAction("Index");
         }
     }
 }

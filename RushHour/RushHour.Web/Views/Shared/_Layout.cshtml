@@ -24,20 +24,21 @@
                 <ul class="nav navbar-nav">
 
                     @if (RushHour.Web.Authentication.AuthenticationManager.LoggedUser != null)
-                    {
-                        <li>@Html.ActionLink("Appointments", "Index", "Appointment")</li>
-                        <li>@Html.ActionLink("Calendar", "Calendar", "Appointment")</li>
+    {
+                <li>@Html.ActionLink("Appointments", "Index", "Appointment")</li>
+                <li>@Html.ActionLink("Calendar", "Calendar", "Appointment")</li>
+                <li>@Html.ActionLink("Contacts", "Contact", "Home")</li>
 
 
-                    }
+}
 
-                    @*@if ((RushHour.Web.Authentication.AuthenticationManager.LoggedUser != null &&
-                        RushHour.Web.Authentication.AuthenticationManager.LoggedUser.IsAdmin))
-                                            {
-                                                <li> @Html.ActionLink("Users", "Index", "User") </li>
-                                                <li> @Html.ActionLink("Activities", "Index", "Activity") </li>
+                @*@if ((RushHour.Web.Authentication.AuthenticationManager.LoggedUser != null &&
+    RushHour.Web.Authentication.AuthenticationManager.LoggedUser.IsAdmin))
+                        {
+                            <li> @Html.ActionLink("Users", "Index", "User") </li>
+                            <li> @Html.ActionLink("Activities", "Index", "Activity") </li>
 
-                                            }*@
+                        }*@
                 </ul>
                 @Html.Partial("_LoginPartial")
 

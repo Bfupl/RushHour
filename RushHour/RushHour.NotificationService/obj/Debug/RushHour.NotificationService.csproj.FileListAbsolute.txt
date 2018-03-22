@@ -1,0 +1,5 @@
+C:\Users\Ivo\Desktop\RushHour\RushHour\RushHour\RushHour.NotificationService\bin\Debug\RushHour.NotificationService.dll
+C:\Users\Ivo\Desktop\RushHour\RushHour\RushHour\RushHour.NotificationService\bin\Debug\RushHour.NotificationService.pdb
+C:\Users\Ivo\Desktop\RushHour\RushHour\RushHour\RushHour.NotificationService\obj\Debug\RushHour.NotificationService.csproj.CoreCompileInputs.cache
+C:\Users\Ivo\Desktop\RushHour\RushHour\RushHour\RushHour.NotificationService\obj\Debug\RushHour.NotificationService.dll
+C:\Users\Ivo\Desktop\RushHour\RushHour\RushHour\RushHour.NotificationService\obj\Debug\RushHour.NotificationService.pdb

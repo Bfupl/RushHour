@@ -1,5 +1,57 @@
-﻿@{
-    ViewBag.Title = "Contact";
+﻿@model RushHour.Web.ViewModels.EmailSending.EmailSendingViewModel
+@using RushHour.Web.Controllers
+@{
+                /**/
+
+                ViewBag.Title = "Contact";
+                Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+
+<div class="row" style="margin: 50px 35px">
+    <div class="col-md-12">
+        <h4 class="text-success">@TempData["Email"]</h4>
+        <h2 style="margin-bottom: 20px" align="center">Contacts</h2>
+        <ul class="list-group">
+            <li class="list-group-item">Email: <i>RushHour@gmail.com</i></li>
+            <li class="list-group-item">Facebook: <i>RushHour-2018</i></li>
+            <li class="list-group-item">Phone: <i>+359 555 555 55</i></li>
+            <li class="list-group-item">Website: <i>http://rushhour.apphb.com</i></li>
+        </ul>
+    </div>
+</div>
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal" style="margin:50px 35px" align="center">
+        <h2 style="margin-bottom: 25px">Or you can write us directly!</h2>
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.From, new { htmlAttributes = new { @class = "form-control", placeholder = "From" } })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Subject" } })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.TextAreaFor(model => model.Body, new { htmlAttributes = new { @class = "form-control" }, style = "width: 100%; border-radius: 5px", rows = 5, placeholder = "Enter Body" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                <input type="submit" value="Send Email" class="btn btn-default btn-lg" />
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin: 50px 35px">
+        <div class="col-md-12">
+            <h2 style="margin-bottom: 20px" align="center">Here you can find us on the map!</h2>
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30252.53145133611!2d24.73498374204606!3d42.14171738554772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14acd1b737c83041%3A0x4b859e8be8490ec7!2sPlovdiv+Center%2C+Plovdiv!5e0!3m2!1sen!2sbg!4v1520350045719" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+}

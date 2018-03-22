@@ -190,6 +190,7 @@
     <Compile Include="ViewModels\Appointment\AppoitmentEditViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CheckBoxView\ListCheckBoxViewModel.cs" />
+    <Compile Include="ViewModels\EmailSending\EmailSendingViewModel.cs" />
     <Compile Include="ViewModels\User\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -362,6 +363,7 @@
     <Content Include="Views\User\Details.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Account\UserProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -396,6 +398,10 @@
     <ProjectReference Include="..\RushHour.DataAccess\RushHour.DataAccess.csproj">
       <Project>{52523D39-7985-423F-A3C0-42F7C4185703}</Project>
       <Name>RushHour.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RushHour.NotificationService\RushHour.NotificationService.csproj">
+      <Project>{8776BC50-9889-4F3E-B107-B2AB1238CCC6}</Project>
+      <Name>RushHour.NotificationService</Name>
     </ProjectReference>
     <ProjectReference Include="..\RushHour.RelationalServices.Domain\RushHour.RelationalServices.Domain.csproj">
       <Project>{AE561117-F877-4985-8F8F-480C966B2E44}</Project>
