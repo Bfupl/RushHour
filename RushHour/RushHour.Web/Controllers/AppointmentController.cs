@@ -219,7 +219,7 @@ namespace RushHour.Web.Controllers
             }
             Appointment appointment = service.Get(model.Id);
             appointment.StartDateTime = Convert.ToDateTime(model.StartDateTime);
-            appointment.EndDateTime = Convert.ToDateTime(model.EndDateTime);
+            
             appointment.UserId = appointment.UserId;
             appointment.Activities.Clear();
 
@@ -232,6 +232,7 @@ namespace RushHour.Web.Controllers
                 }
             }
             appointment.Activities = ac;
+            appointment.EndDateTime = model.StartDateTime.AddHours(ac.Sum(a => a.Duration));
 
             if (!service.Update(appointment))
             {

@@ -35,7 +35,7 @@
                     <div class="col-md-10">
                         @for (int i = 0; i < Model.Activities.Count; i++)
                 {
-                            @Html.CheckBoxFor(model => model.Activities[i].IsChecked, new { @disabled = "disabled" })
+                            @Html.CheckBoxFor(model => model.Activities[i].IsChecked, new { @disabled = "disabled" ,  style = "width:30px;height:20px;margin:10px 5px 10px;" })
                             @Model.Activities[i].Name
                             @Html.HiddenFor(model => model.Activities[i].Id)
                             @Html.HiddenFor(model => model.Activities[i].Name)
