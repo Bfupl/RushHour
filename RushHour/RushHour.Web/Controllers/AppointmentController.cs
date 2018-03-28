@@ -17,27 +17,29 @@ using RushHour.RelationalServices.Domain.ActivityModels;
 
 namespace RushHour.Web.Controllers
 {
-    public class AppointmentController : CrudController<Appointment, AppointmentCreateViewModel>
+    public class AppointmentController : Controller
     {
 
         private IService<Activity> activityService;
+        private IService<Appointment> service;
 
 
         public AppointmentController(IService<Appointment> service, IService<Activity> activityService)
-            : base(service)
+            
         {
+            this.service = service;
             this.activityService = activityService;
 
         }
 
         [IsLoggedUser]
-        public override ActionResult Index()
+        public  ActionResult Index()
         {
             return View();
         }
 
         [IsLoggedUser]
-        public override ActionResult LoadData()
+        public  ActionResult LoadData()
         {
             IEnumerable<Appointment> appointments = Authentication.AuthenticationManager.LoggedUser.IsAdmin ?
                 service.GetAll() :
@@ -55,7 +57,7 @@ namespace RushHour.Web.Controllers
             return Json(new { data = model }, JsonRequestBehavior.AllowGet);
         }
         [IsLoggedUser]
-        public override ActionResult Details(int id)
+        public  ActionResult Details(int id)
         {
 
             ViewModels.Appointment.AppoitmentEditViewModel model = new AppoitmentEditViewModel();
@@ -97,30 +99,11 @@ namespace RushHour.Web.Controllers
         }
 
 
-        public override void OnBeforeInsert()
-        {
-            IEnumerable<Activity> activities = activityService.GetAll();
-            List<ActivityViewModel> model = new List<ActivityViewModel>();
-            AppointmentCreateViewModel Vmodel = new AppointmentCreateViewModel();
+    
 
-            foreach (var activity in activities)
-            {
-                ActivityViewModel viewModel = new ActivityViewModel
-                {
-                    Id = activity.Id,
-                    Name = activity.Name,
-                    Duration = activity.Duration,
-                    Price = activity.Price
-                };
-                model.Add(viewModel);
-                Vmodel.ListBoxActivities = model;
-
-            }
-
-
-        }
+        [HttpGet]
         [IsLoggedUser]
-        public override ActionResult Create()
+        public  ActionResult Create()
         {
             if (Authentication.AuthenticationManager.LoggedUser == null)
             {
@@ -151,9 +134,9 @@ namespace RushHour.Web.Controllers
             }
         }
 
-
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public override ActionResult Create(AppointmentCreateViewModel Vmodel, Appointment model)
+        public  ActionResult Create(AppointmentCreateViewModel Vmodel, Appointment model)
         {
             if (!ModelState.IsValid)
             {
@@ -181,9 +164,9 @@ namespace RushHour.Web.Controllers
             }
             return RedirectToAction("Index");
         }
-
+        [HttpGet]
         [IsLoggedUser]
-        public override ActionResult Edit(int id)
+        public  ActionResult Edit(int id)
         {
 
 
@@ -226,9 +209,9 @@ namespace RushHour.Web.Controllers
         }
 
 
-
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(AppoitmentEditViewModel Vmodel, Appointment model)
+        public  ActionResult Edit(AppoitmentEditViewModel Vmodel, Appointment model)
         {
             if (!ModelState.IsValid)
             {
@@ -257,8 +240,9 @@ namespace RushHour.Web.Controllers
 
             return RedirectToAction("Index");
         }
+        [HttpGet]
         [IsLoggedUser]
-        public override ActionResult Delete(int id)
+        public  ActionResult Delete(int id)
         {
             ViewModels.Appointment.AppoitmentEditViewModel model = new AppoitmentEditViewModel();
 
@@ -302,9 +286,9 @@ namespace RushHour.Web.Controllers
         }
 
 
-
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public override ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int id)
         {
             Appointment ap = service.Get(id);
             if (!service.Delete(ap))
