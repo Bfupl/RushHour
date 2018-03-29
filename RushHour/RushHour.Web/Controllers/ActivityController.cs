@@ -71,5 +71,10 @@ namespace RushHour.Web.Controllers
         {
             return base.DeleteConfirmed(id);
         }
+
+        public ActionResult Info()
+        {
+            return View();
+        }
     }
 }

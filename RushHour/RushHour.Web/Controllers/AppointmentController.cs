@@ -153,6 +153,7 @@ namespace RushHour.Web.Controllers
             List<string> activitiesForEmail = new List<string>();
             foreach (var item in Vmodel.ListBoxActivities)
             {
+      
                 if (item.IsChecked)
                 {
                     ac.Add(activityService.Get(item.Id));

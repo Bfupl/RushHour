@@ -170,7 +170,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\MapperConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Authentication\AuthenticationManager.cs" />
+    <Compile Include="bin\Authentication\AuthenticationManager.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ActivityController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
@@ -202,8 +202,15 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\CheckBoxes.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Content\images\2.png" />
-    <Content Include="Content\images\appointment.png" />
+    <Content Include="Content\images\act.JPG" />
+    <Content Include="Content\images\app.JPG" />
+    <Content Include="Content\images\appall.JPG" />
+    <Content Include="Content\images\calendar.JPG" />
+    <Content Include="Content\images\email.JPG" />
+    <Content Include="Content\images\macos-install.jpg" />
+    <Content Include="Content\images\pc-diagnostic.jpg" />
+    <Content Include="Content\images\pc-repair.jpg" />
+    <Content Include="Content\images\win-install.jpg" />
     <Content Include="Content\jquery.pnotify.css" />
     <Content Include="Content\jquery.pnotify.icons.css" />
     <Content Include="Content\pnotify.custom.css" />
@@ -367,6 +374,7 @@
     <Content Include="Views\Account\UserProfile.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\EmailConfirmed.cshtml" />
+    <Content Include="Views\Activity\Info.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
