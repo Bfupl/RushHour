@@ -5,6 +5,7 @@ using RushHour.DataAccess.Context;
 using RushHour.DataAccess.UnitOfWork;
 using RushHour.NotificationService;
 using RushHour.RelationalServices.Domain.UserModels;
+using RushHour.Common.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -73,6 +74,7 @@ namespace RushHour.Web.Controllers
         public ActionResult Register([Bind(Include = "Id,Email,Password,Name,Phone,IsAdmin")] ViewModels.UserViewModel model)
         {
             EmailSender emailSender = new EmailSender();
+            string validationCode = HashUtils.CreateReferralCode();
             if (db.Users.Where(u => u.Email == model.Email).Count() > 0)
             {
                 ModelState.AddModelError("", "A user with these credentials already exists.");
@@ -90,17 +92,48 @@ namespace RushHour.Web.Controllers
             user.Name = model.Name;
             user.Phone = model.Phone;
             user.IsAdmin = model.IsAdmin;
+            user.IsEmailConfirmed = false;
+            user.ValidationCode = validationCode;
 
             if (!service.Insert(user))
             {
                 return View(model);
             }
-            
-            Authentication.AuthenticationManager.Authenticate(user.Email, user.Password);
-            return RedirectToAction("Index", "Account");
+            emailSender.SendConfirmationEmail(user);
+            //Authentication.AuthenticationManager.Authenticate(user.Email, user.Password);
+            return RedirectToAction("ConfirmEmail", "Account");
         }
-        
-       
+
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult ValidateEmail(int id, string validationCode)
+        {
+            if (id == null || validationCode == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+
+
+            User user = service.Get(id);  // repository.GetById(Int32.Parse(userId));
+            if (user == null || validationCode != user.ValidationCode)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            user.Id = id;
+            user.ValidationCode = validationCode;
+            user.IsEmailConfirmed = true;
+
+            service.Update(user);
+
+            return View("ConfirmEmail");
+        }
+        public ActionResult ConfirmEmail()
+        {
+            return View();
+        }
+
         [HttpGet]
         public ActionResult UserProfile(int id)
         {

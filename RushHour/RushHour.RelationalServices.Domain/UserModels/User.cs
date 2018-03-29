@@ -19,5 +19,8 @@ namespace RushHour.RelationalServices.Domain.UserModels
         public string Phone { get; set; }
         [Required]
         public bool IsAdmin { get; set; }
+        
+        public bool IsEmailConfirmed { get; set; }
+        public string ValidationCode { get; set; }
     }
 }

@@ -20,5 +20,7 @@ namespace RushHour.Web.ViewModels
 
         public string Phone { get; set; }
         public bool IsAdmin { get; set; }
+        public bool IsEmailConfirmed { get; set; }
+        public string ValidationCode { get; set; }
     }
 }

@@ -15,8 +15,9 @@ namespace RushHour.NotificationService
     {
         public SmtpClient Client { get; set; }
         private string viewAppointmentLink = "http://rushhour.apphb.com/Appointment";
+        private string confirmationEmailUrl = "http://rushhour.apphb.com/Account/ValidateEmail";
 
-       
+
         private string _adminEmail = "rushhourapp9@gmail.com";
         private string _adminPass = "!e123456789";
 
@@ -65,6 +66,16 @@ namespace RushHour.NotificationService
                 $" || End Date & Time of your Appointment ->  {appointment.EndDateTime} <br />" +
                 $" || Estimated time to complete your activities ->  {range} hours  <br /> " +
                 $" || To view your all of your appointments click  -> {link}");
+        }
+
+
+        public void SendConfirmationEmail(User user)
+        {
+            string callbackUrl = $"{confirmationEmailUrl}?userId={user.Id}&validationCode={user.ValidationCode}";
+            string link = $"<a href='{ callbackUrl}'>here</a>!";
+            SendEmail(user.Email, "Rush Hour registration request",
+                $"Hello  {user.Name} , Welcome to Rush Hour ! Before you continue to the application you need to confirm your E-mail <br /> " +
+                $"To confirm your account click  -> {link}");
         }
 
         public void SendEmail(string email, string name, string comment)
