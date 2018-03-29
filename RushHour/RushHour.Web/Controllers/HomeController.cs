@@ -32,13 +32,13 @@ namespace RushHour.Web.Controllers
         {
             EmailSender emailSender = new EmailSender();
 
-            if (emailSendingViewModel.Body == null || emailSendingViewModel.From == null || emailSendingViewModel.Subject == null)
+            if (emailSendingViewModel.Email == null || emailSendingViewModel.Name == null || emailSendingViewModel.Comment == null)
             {
                 TempData["Email"] = "You have to enter all the needed information for sending an email!";
                 return View("Contact");
             }
 
-            emailSender.SendMail(emailSendingViewModel.From, emailSendingViewModel.Subject, emailSendingViewModel.Body);
+            emailSender.SendContactFormEmail(emailSendingViewModel.Email, emailSendingViewModel.Name, emailSendingViewModel.Comment);
             TempData["Email"] = "You have send the email successfully!";
 
             return View("Contact");

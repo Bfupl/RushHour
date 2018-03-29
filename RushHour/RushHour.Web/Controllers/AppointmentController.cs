@@ -14,6 +14,7 @@ using RushHour.Web.ActionFilters;
 using RushHour.RelationalServices.Domain.AppointmentModels;
 using RushHour.Common.Interfaces;
 using RushHour.RelationalServices.Domain.ActivityModels;
+using RushHour.NotificationService;
 
 namespace RushHour.Web.Controllers
 {
@@ -22,6 +23,7 @@ namespace RushHour.Web.Controllers
 
         private IService<Activity> activityService;
         private IService<Appointment> service;
+        private EmailSender emailSend = new EmailSender();
 
 
         public AppointmentController(IService<Appointment> service, IService<Activity> activityService)
@@ -148,12 +150,18 @@ namespace RushHour.Web.Controllers
 
             model.UserId = Authentication.AuthenticationManager.LoggedUser.Id;
             List<Activity> ac = new List<Activity>();
+            List<string> activitiesForEmail = new List<string>();
             foreach (var item in Vmodel.ListBoxActivities)
             {
                 if (item.IsChecked)
                 {
                     ac.Add(activityService.Get(item.Id));
+                    
                 }
+            }
+            foreach (var item in ac)
+            {
+                activitiesForEmail.Add(item.Name);
             }
             model.Activities = ac;
             model.EndDateTime = model.StartDateTime.AddHours(ac.Sum(a => a.Duration));
@@ -162,6 +170,7 @@ namespace RushHour.Web.Controllers
             {
                 return View(Vmodel);
             }
+            emailSend.SendNewAppointmentEmail(Authentication.AuthenticationManager.LoggedUser, activitiesForEmail,model);
             return RedirectToAction("Index");
         }
         [HttpGet]

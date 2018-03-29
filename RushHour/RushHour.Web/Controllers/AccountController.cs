@@ -3,6 +3,7 @@ using RushHour.BaseService;
 using RushHour.Common.Interfaces;
 using RushHour.DataAccess.Context;
 using RushHour.DataAccess.UnitOfWork;
+using RushHour.NotificationService;
 using RushHour.RelationalServices.Domain.UserModels;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,7 @@ namespace RushHour.Web.Controllers
 
         private IService<User> service;
         private UnitOfWork unitOfWork = new UnitOfWork();
+        private EmailSender emailSender = new EmailSender();
 
         public AccountController()
         {
@@ -70,6 +72,7 @@ namespace RushHour.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register([Bind(Include = "Id,Email,Password,Name,Phone,IsAdmin")] ViewModels.UserViewModel model)
         {
+            EmailSender emailSender = new EmailSender();
             if (db.Users.Where(u => u.Email == model.Email).Count() > 0)
             {
                 ModelState.AddModelError("", "A user with these credentials already exists.");
@@ -92,6 +95,7 @@ namespace RushHour.Web.Controllers
             {
                 return View(model);
             }
+            
             Authentication.AuthenticationManager.Authenticate(user.Email, user.Password);
             return RedirectToAction("Index", "Account");
         }

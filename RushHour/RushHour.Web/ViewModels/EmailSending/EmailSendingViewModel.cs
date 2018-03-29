@@ -10,10 +10,10 @@ namespace RushHour.Web.ViewModels.EmailSending
     {
         [Required(ErrorMessage = "Field cannot be empty")]
         [DataType(DataType.EmailAddress, ErrorMessage = "Please enter a valid E-mail")]
-        public string From { get; set; }
+        public string Email { get; set; }
         [Required(ErrorMessage = "Field cannot be empty")]
-        public string Subject { get; set; }
+        public string Name { get; set; }
         [Required(ErrorMessage = "Field cannot be empty")]
-        public string Body { get; set; }
+        public string Comment { get; set; }
     }
 }

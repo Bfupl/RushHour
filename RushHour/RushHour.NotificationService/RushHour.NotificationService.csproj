@@ -43,5 +43,15 @@
     <Compile Include="EmailSender.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RushHour.BaseService.Domain\RushHour.BaseService.Domain.csproj">
+      <Project>{B415735C-787F-4DFF-8F5C-93B01889ED01}</Project>
+      <Name>RushHour.BaseService.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RushHour.RelationalServices.Domain\RushHour.RelationalServices.Domain.csproj">
+      <Project>{AE561117-F877-4985-8F8F-480C966B2E44}</Project>
+      <Name>RushHour.RelationalServices.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
