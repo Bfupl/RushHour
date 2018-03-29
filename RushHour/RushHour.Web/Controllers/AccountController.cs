@@ -105,34 +105,39 @@ namespace RushHour.Web.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
-        public ActionResult ValidateEmail(int id, string validationCode)
+      
+        public ActionResult ValidateEmail(string userId, string validationCode)
         {
-            if (id == null || validationCode == null)
+            if (userId == null || validationCode == null)
             {
                 return RedirectToAction("Index", "Home");
             }
 
 
 
-            User user = service.Get(id);  // repository.GetById(Int32.Parse(userId));
+            User user = service.Get(Convert.ToInt32(userId));  
             if (user == null || validationCode != user.ValidationCode)
             {
                 return RedirectToAction("Index", "Home");
             }
 
-            user.Id = id;
+            user.Id = Convert.ToInt32(userId);
             user.ValidationCode = validationCode;
             user.IsEmailConfirmed = true;
 
             service.Update(user);
 
-            return View("ConfirmEmail");
+            return RedirectToAction("EmailConfirmed", "Account");
         }
         public ActionResult ConfirmEmail()
         {
             return View();
         }
+        public ActionResult EmailConfirmed()
+        {
+            return View();
+        }
+
 
         [HttpGet]
         public ActionResult UserProfile(int id)
