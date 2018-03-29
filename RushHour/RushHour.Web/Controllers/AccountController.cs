@@ -44,11 +44,15 @@ namespace RushHour.Web.Controllers
         {
             Authentication.AuthenticationManager.Authenticate(user.Email, user.Password);
 
-            if (Authentication.AuthenticationManager.LoggedUser == null)
+            if (Authentication.AuthenticationManager.LoggedUser == null  )
             {
                 return View();
             }
-
+            else if (Authentication.AuthenticationManager.LoggedUser != null && Authentication.AuthenticationManager.LoggedUser.IsEmailConfirmed != true)
+            {
+                ViewData["WrongLogin"] = "Email is not confirmed!";
+                return View();
+            }
             return RedirectToAction("Index","Account");
         }
 
