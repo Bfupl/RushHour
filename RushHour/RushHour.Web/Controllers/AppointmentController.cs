@@ -68,7 +68,7 @@ namespace RushHour.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            else if (appointment.UserId != Authentication.AuthenticationManager.LoggedUser.Id)
+            else if (appointment.UserId != Authentication.AuthenticationManager.LoggedUser.Id && Authentication.AuthenticationManager.LoggedUser.IsAdmin != true)
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -186,7 +186,7 @@ namespace RushHour.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            else if (appointment.UserId != Authentication.AuthenticationManager.LoggedUser.Id)
+            else if (appointment.UserId != Authentication.AuthenticationManager.LoggedUser.Id && Authentication.AuthenticationManager.LoggedUser.IsAdmin != true)
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -263,7 +263,7 @@ namespace RushHour.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            else if (appointment.UserId != Authentication.AuthenticationManager.LoggedUser.Id)
+            else if (appointment.UserId != Authentication.AuthenticationManager.LoggedUser.Id && Authentication.AuthenticationManager.LoggedUser.IsAdmin != true)
             {
                 return RedirectToAction("Index", "Home");
             }
